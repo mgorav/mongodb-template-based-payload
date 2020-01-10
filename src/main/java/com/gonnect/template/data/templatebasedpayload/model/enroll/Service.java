@@ -10,6 +10,7 @@ public class Service {
 
     @Id
     private String _id;
+    private String name;
     private ServiceDefinition serviceDefinition;
     private UserDefinition userDefinition;
 

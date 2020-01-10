@@ -11,6 +11,7 @@ public class TemplateDefinition {
 
     @Id
     private String _id;
+    private String templateName;
     private List<Structure> structure;
 
     public TemplateDefinition() {

@@ -27,7 +27,7 @@ class TemplateBasedPayloadApplicationTests {
         enrollment.getService().setServiceDefinition(new ServiceDefinition());
         enrollment.getService().setUserDefinition(new UserDefinition());
         enrollment.getService().getServiceDefinition().setUserDefinition(new UserDefinition());
-        enrollment.getService().getServiceDefinition().setTemplateDefinition(new TemplateDefinition());
+        enrollment.getService().getServiceDefinition().setTemplateDefinitions(Arrays.asList(new TemplateDefinition()));
 
         Structure structure1 = new Structure();
         structure1.setColumnName("name");
@@ -35,7 +35,7 @@ class TemplateBasedPayloadApplicationTests {
         ValidationModule vm1 = new ValidationModule();
         vm1.setName("stringValidation");
         vm1.addArg("length", "10");
-        vm1.addArg("regExp","[abc]");
+        vm1.addArg("regExp", "[abc]");
         structure1.setValidationModule(vm1);
 
         Structure structure2 = new Structure();
@@ -44,13 +44,12 @@ class TemplateBasedPayloadApplicationTests {
         ValidationModule vm2 = new ValidationModule();
         vm2.setName("mobileValidation");
         vm2.addArg("length", "9");
-        vm2.addArg("regExp","[0..9]");
+        vm2.addArg("regExp", "[0..9]");
         structure1.setValidationModule(vm2);
         structure2.setValidationModule(vm2);
 
 
-
-        enrollment.getService().getServiceDefinition().getTemplateDefinition().setStructure(Arrays.asList(structure1,structure2));
+        enrollment.getService().getServiceDefinition().getTemplateDefinitions().get(0).setStructure(Arrays.asList(structure1, structure2));
 
 
         Mono<Long> countEnrollment = template.count(new Query(), Enrollment.class) //
@@ -63,11 +62,11 @@ class TemplateBasedPayloadApplicationTests {
         StepVerifier.create(countEnrollment).expectNext(1L).verifyComplete();
 
         Payload payload = new Payload();
-        payload.add("name","Gaurav");
-        payload.add("mobile","123");
+        payload.add("name", "Gaurav");
+        payload.add("mobile", "123");
 
-        payload.addNewRow("name","Shikha");
-        payload.add("mobile","456");
+        payload.addNewRow("name", "Shikha");
+        payload.add("mobile", "456");
 
         payload.setEnrollmentId(enrollment.get_id());
 

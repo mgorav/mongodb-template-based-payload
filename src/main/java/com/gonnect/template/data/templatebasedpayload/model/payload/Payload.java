@@ -19,6 +19,7 @@ import java.util.*;
 public class Payload {
     @Id
     private String _id;
+    private String name;
     // Point to the enrollment
     private String enrollmentId;
     private List<Map<String, String>> rows;
