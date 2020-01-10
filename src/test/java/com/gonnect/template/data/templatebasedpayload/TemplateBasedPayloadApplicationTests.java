@@ -26,8 +26,17 @@ class TemplateBasedPayloadApplicationTests {
         enrollment.setService(new Service());
         enrollment.getService().setServiceDefinition(new ServiceDefinition());
         enrollment.getService().setUserDefinition(new UserDefinition());
-        enrollment.getService().getServiceDefinition().setUserDefinition(new UserDefinition());
+        enrollment.getService().getUserDefinition().add(RoleOperation.GET);
+        enrollment.getService().getUserDefinition().add(RoleOperation.PUT);
+        enrollment.getService().getUserDefinition().add(RoleOperation.POST);
+        enrollment.getService().getUserDefinition().setRole(Role.ADMIN);
+
+
         enrollment.getService().getServiceDefinition().setTemplateDefinitions(Arrays.asList(new TemplateDefinition()));
+
+        enrollment.getService().getServiceDefinition().getTemplateDefinitions().get(0).setUserDefinition(new UserDefinition());
+        enrollment.getService().getServiceDefinition().getTemplateDefinitions().get(0).getUserDefinition().setRole(Role.VIEW);
+        enrollment.getService().getServiceDefinition().getTemplateDefinitions().get(0).getUserDefinition().add(RoleOperation.GET);
 
         Structure structure1 = new Structure();
         structure1.setColumnName("name");

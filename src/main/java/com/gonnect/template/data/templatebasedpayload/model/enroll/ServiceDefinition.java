@@ -11,7 +11,6 @@ import java.util.UUID;
 public class ServiceDefinition {
     @Id
     private String _id;
-    private UserDefinition userDefinition;
     private List<TemplateDefinition> templateDefinitions;
 
     public ServiceDefinition() {
