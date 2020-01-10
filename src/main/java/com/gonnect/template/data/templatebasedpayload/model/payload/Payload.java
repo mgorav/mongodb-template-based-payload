@@ -1,19 +1,19 @@
 package com.gonnect.template.data.templatebasedpayload.model.payload;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gonnect.template.data.templatebasedpayload.model.enroll.Enrollment;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * A payload based on enrolled {@link Enrollment} template {@link com.gonnect.template.data.templatebasedpayload.model.enroll.TemplateDefinition}
  */
-@Document
+@Document(collection = "payload")
 @Data
 @ToString
 public class Payload {
@@ -21,16 +21,28 @@ public class Payload {
     private String _id;
     // Point to the enrollment
     private String enrollmentId;
-    private Map<String,String> row;
+    private List<Map<String, String>> rows;
+
+    @JsonIgnore
+    @Transient
+    private int currentRow = 0;
 
     public Payload() {
 
         _id = UUID.randomUUID().toString();
-        row = new HashMap<>();
+        rows = new ArrayList<>();
+        rows.add(currentRow,new HashMap<>());
     }
 
-    public void add(String columnName,String columnValue) {
 
-        row.put(columnName,columnValue);
+    public void add(String columnName, String columnValue) {
+
+        rows.get(currentRow).put(columnName, columnValue);
+    }
+
+    public void addNewRow(String columnName, String columnValue) {
+        currentRow++;
+        rows.add(currentRow,new HashMap<>());
+        add(columnName, columnValue);
     }
 }

@@ -1,32 +1,46 @@
 {
-  "_id": "b11bb52e-ce01-4c48-b0cc-fd2c2a3b7c9f",
+  "_id": "eca7330a-0650-457a-b2c4-56aff7164211",
   "service": {
-    "_id": "bf46bc22-2224-4697-8de8-981098097291",
+    "_id": "e9224c00-32e3-483d-a375-db39a3118071",
     "serviceDefinition": {
-      "_id": "bde1d6cd-f1c9-4692-b55b-2df7fba93f8d",
+      "_id": "8d8f7ce0-006c-4567-af5e-495c41b0884c",
       "userDefinition": {
-        "_id": "f16773f9-dc9c-4369-9bcb-3fc6b4348fc4"
+        "_id": "95b29f94-40ae-45c0-b585-4c089ee03af9"
       },
       "templateDefinition": {
-        "_id": "a46ae8b4-7f3b-4cab-b8fa-a17486752dd2",
+        "_id": "04c547d3-d759-4731-8a95-09be93a24e43",
         "structure": [
           {
-            "_id": "4f75bdc4-4a09-42e2-9272-fc8eaeb31090",
+            "_id": "f71c9917-2195-4b38-8b93-520abf545fbe",
             "columnName": "name",
-            "validationModule": "stringValidation",
+            "validationModule": {
+              "_id": "5081ee02-00ec-4c00-bdb5-c83c447f7fd4",
+              "name": "mobileValidation",
+              "args": {
+                "length": "9",
+                "regExp": "[0..9]"
+              }
+            },
             "isPk": false
           },
           {
-            "_id": "6209aefd-098d-4b81-825e-d1e13e237187",
+            "_id": "49b47ca4-8f4a-418b-97ef-6d9ad1758403",
             "columnName": "mobile",
-            "validationModule": "mobileValidation",
+            "validationModule": {
+              "_id": "5081ee02-00ec-4c00-bdb5-c83c447f7fd4",
+              "name": "mobileValidation",
+              "args": {
+                "length": "9",
+                "regExp": "[0..9]"
+              }
+            },
             "isPk": true
           }
         ]
       }
     },
     "userDefinition": {
-      "_id": "97e30d85-fbce-4292-82af-f5727baa0649"
+      "_id": "96e8f0b7-7f09-4b9f-84fa-9f894148bff0"
     }
   }
 }

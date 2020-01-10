@@ -11,7 +11,7 @@ public class Structure {
     @Id
     private String _id;
     private String columnName;
-    private String validationModule;
+    private ValidationModule validationModule;
     private boolean isPk;
 
     public Structure() {
