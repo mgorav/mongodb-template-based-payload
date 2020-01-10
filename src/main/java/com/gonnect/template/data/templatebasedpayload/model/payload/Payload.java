@@ -22,6 +22,8 @@ public class Payload {
     private String name;
     // Point to the enrollment
     private String enrollmentId;
+    private String serviceId;
+    private String templateDefinitionId;
     private List<Map<String, String>> rows;
 
     @JsonIgnore
@@ -32,7 +34,7 @@ public class Payload {
 
         _id = UUID.randomUUID().toString();
         rows = new ArrayList<>();
-        rows.add(currentRow,new HashMap<>());
+        rows.add(currentRow, new HashMap<>());
     }
 
 
@@ -43,7 +45,7 @@ public class Payload {
 
     public void addNewRow(String columnName, String columnValue) {
         currentRow++;
-        rows.add(currentRow,new HashMap<>());
+        rows.add(currentRow, new HashMap<>());
         add(columnName, columnValue);
     }
 }

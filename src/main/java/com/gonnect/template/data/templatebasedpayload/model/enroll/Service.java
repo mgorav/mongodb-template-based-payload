@@ -11,6 +11,7 @@ public class Service {
     @Id
     private String _id;
     private String name;
+    private String version;
     private ServiceDefinition serviceDefinition;
     private UserDefinition userDefinition;
 

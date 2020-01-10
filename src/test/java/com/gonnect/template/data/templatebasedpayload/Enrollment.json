@@ -2,6 +2,8 @@
   "_id": "7cfbe6d6-84ea-46ba-bacf-49888c6e33f3",
   "service": {
     "_id": "211230be-a57a-4242-8f5c-83f35aaa2cfb",
+    "service":"foo",
+    "version":"1.0",
     "serviceDefinition": {
       "_id": "4682e27b-13de-4e0b-941f-17dca4c1d71e",
       "userDefinition": {

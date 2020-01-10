@@ -1,6 +1,8 @@
 {
   "_id": "85f30508-9f96-4b6c-a169-4e8e38e8d5d3",
   "enrollmentId": "7cfbe6d6-84ea-46ba-bacf-49888c6e33f3",
+  "serviceId": "211230be-a57a-4242-8f5c-83f35aaa2cfb",
+  "templateDefinition": "4eb6e9da-aabc-4bc9-9cce-eb079a86597a",
   "rows": [
     {
       "name": "Gaurav",
