@@ -2,6 +2,7 @@ package com.gonnect.template.data.templatebasedpayload.model.enroll;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.UUID;
 
@@ -10,6 +11,7 @@ public class Service {
 
     @Id
     private String _id;
+    @Indexed
     private String name;
     private String version;
     private ServiceDefinition serviceDefinition;

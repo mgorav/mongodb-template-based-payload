@@ -2,11 +2,13 @@
   "_id": "e1830e84-f3ac-47e9-986a-124674477b21",
   "service": {
     "_id": "786e85aa-673a-424b-8acd-20687f5a6556",
+    "name": "foo",
     "serviceDefinition": {
       "_id": "094fc52e-432f-4e88-bfed-ada3297163f3",
       "templateDefinitions": [
         {
           "_id": "4eabb8f1-1036-47fb-a215-9d6ef770efb5",
+          "name": "bar",
           "userDefinition": {
             "_id": "7d8abacf-1310-44ef-b11f-bbb7969da0c1",
             "role": "VIEW",

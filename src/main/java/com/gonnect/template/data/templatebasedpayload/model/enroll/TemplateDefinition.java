@@ -2,6 +2,7 @@ package com.gonnect.template.data.templatebasedpayload.model.enroll;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,6 +12,7 @@ public class TemplateDefinition {
 
     @Id
     private String _id;
+    @Indexed
     private String templateName;
     private UserDefinition userDefinition;
     private List<Structure> structure;
