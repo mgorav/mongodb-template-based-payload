@@ -21,7 +21,7 @@
                 "_id": "baaec353-b303-4900-be32-e9b28c42e76b",
                 "name": "mobileValidation",
                 "args": {
-                  "length": "9",
+                  "length": "6",
                   "regExp": "[0..9]"
                 }
               },
@@ -34,7 +34,7 @@
                 "_id": "baaec353-b303-4900-be32-e9b28c42e76b",
                 "name": "mobileValidation",
                 "args": {
-                  "length": "9",
+                  "length": "6",
                   "regExp": "[0..9]"
                 }
               },
