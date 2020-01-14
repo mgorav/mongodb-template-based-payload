@@ -1,4 +1,4 @@
-package com.gonnect.template.data.templatebasedpayload.model.enroll;
+package com.gonnect.template.data.templatebasedpayload.document.enroll;
 
 import lombok.Data;
 import lombok.ToString;

@@ -1,7 +1,7 @@
 package com.gonnect.template.data.templatebasedpayload;
 
-import com.gonnect.template.data.templatebasedpayload.model.enroll.*;
-import com.gonnect.template.data.templatebasedpayload.model.payload.Payload;
+import com.gonnect.template.data.templatebasedpayload.document.enroll.*;
+import com.gonnect.template.data.templatebasedpayload.document.payload.Payload;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

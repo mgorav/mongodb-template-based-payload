@@ -1,7 +1,7 @@
-package com.gonnect.template.data.templatebasedpayload.model.payload;
+package com.gonnect.template.data.templatebasedpayload.document.payload;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gonnect.template.data.templatebasedpayload.model.enroll.Enrollment;
+import com.gonnect.template.data.templatebasedpayload.document.enroll.Enrollment;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.*;
 
 /**
- * A payload based on enrolled {@link Enrollment} template {@link com.gonnect.template.data.templatebasedpayload.model.enroll.TemplateDefinition}
+ * A payload based on enrolled {@link Enrollment} template {@link com.gonnect.template.data.templatebasedpayload.document.enroll.TemplateDefinition}
  */
 @Document(collection = "payload")
 @Data
@@ -46,11 +46,6 @@ public class Payload {
         rows.get(currentRow).put(columnName, columnValue);
     }
 
-    //    public void addNewRow(String columnName, String columnValue) {
-//        currentRow++;
-//        rows.add(currentRow, new HashMap<>());
-//        add(columnName, columnValue);
-//    }
     public void addNewRow() {
         currentRow++;
         rows.add(currentRow, new HashMap<>());
