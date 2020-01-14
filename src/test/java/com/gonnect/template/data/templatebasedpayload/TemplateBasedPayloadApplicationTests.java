@@ -77,9 +77,7 @@ class TemplateBasedPayloadApplicationTests {
         payload.addNewRow("name", "Shikha");
         payload.add("mobile", "456");
 
-        payload.setEnrollmentId(enrollment.get_id());
-        payload.setServiceId(enrollment.getService().get_id());
-        payload.setTemplateDefinitionId(enrollment.getService().getServiceDefinition().getTemplateDefinitions().get(0).get_id());
+        payload.setEnrollment(enrollment);
 
         Mono<Long> countPayload = template.count(new Query(), Payload.class) //
                 .doOnNext(System.out::println) //

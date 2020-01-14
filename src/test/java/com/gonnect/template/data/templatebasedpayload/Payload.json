@@ -1,16 +1,19 @@
 {
-  "_id": "85f30508-9f96-4b6c-a169-4e8e38e8d5d3",
-  "enrollmentId": "7cfbe6d6-84ea-46ba-bacf-49888c6e33f3",
-  "serviceId": "211230be-a57a-4242-8f5c-83f35aaa2cfb",
-  "templateDefinition": "4eb6e9da-aabc-4bc9-9cce-eb079a86597a",
+  "_id": "7fce33b6-c27d-4f5c-9273-138672968110",
+  "enrollment": {
+    "$java": {
+      "$ref": "enrollment",
+      "$id": "732428cc-6a16-4216-b4e6-2342566dd107"
+    }
+  },
   "rows": [
     {
       "name": "Gaurav",
-      "mobile": "123123123"
+      "mobile": "123"
     },
     {
       "name": "Shikha",
-      "mobile": "45677766"
+      "mobile": "456"
     }
   ]
 }

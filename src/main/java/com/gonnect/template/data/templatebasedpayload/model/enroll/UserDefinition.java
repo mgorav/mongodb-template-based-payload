@@ -2,6 +2,7 @@ package com.gonnect.template.data.templatebasedpayload.model.enroll;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +11,13 @@ import java.util.UUID;
 @Data
 public class UserDefinition {
     @Id
+    @Indexed
     private String _id;
+    @Indexed
     private String userName;
+    @Indexed
     private Role role;
+    @Indexed
     private List<RoleOperation> operations;
 
 

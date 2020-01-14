@@ -11,6 +11,7 @@ import java.util.UUID;
 public class TemplateDefinition {
 
     @Id
+    @Indexed(unique = true)
     private String _id;
     @Indexed
     private String templateName;

@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.*;
@@ -19,12 +20,12 @@ import java.util.*;
 @ToString
 public class Payload {
     @Id
+    @Indexed
     private String _id;
     private String name;
     // Point to the enrollment
-    private String enrollmentId;
-    private String serviceId;
-    private String templateDefinitionId;
+    @DBRef
+    private Enrollment enrollment;
     @Indexed
     private List<Map<String, String>> rows;
 

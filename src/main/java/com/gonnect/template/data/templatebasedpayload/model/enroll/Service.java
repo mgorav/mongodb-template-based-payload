@@ -10,6 +10,7 @@ import java.util.UUID;
 public class Service {
 
     @Id
+    @Indexed
     private String _id;
     @Indexed
     private String name;
