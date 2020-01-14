@@ -31,13 +31,13 @@ public class Payload {
 
     @JsonIgnore
     @Transient
-    private int currentRow = 0;
+    private int currentRow = -1;
 
     public Payload() {
 
         _id = UUID.randomUUID().toString();
         rows = new ArrayList<>();
-        rows.add(currentRow, new HashMap<>());
+        addNewRow();
     }
 
 
@@ -46,9 +46,13 @@ public class Payload {
         rows.get(currentRow).put(columnName, columnValue);
     }
 
-    public void addNewRow(String columnName, String columnValue) {
+    //    public void addNewRow(String columnName, String columnValue) {
+//        currentRow++;
+//        rows.add(currentRow, new HashMap<>());
+//        add(columnName, columnValue);
+//    }
+    public void addNewRow() {
         currentRow++;
         rows.add(currentRow, new HashMap<>());
-        add(columnName, columnValue);
     }
 }

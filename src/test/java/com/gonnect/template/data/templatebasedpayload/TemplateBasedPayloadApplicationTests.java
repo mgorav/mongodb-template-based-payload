@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest
 class TemplateBasedPayloadApplicationTests {
@@ -74,7 +75,8 @@ class TemplateBasedPayloadApplicationTests {
         payload.add("name", "Gaurav");
         payload.add("mobile", "123");
 
-        payload.addNewRow("name", "Shikha");
+        payload.addNewRow();
+        payload.add("name", "Shikha");
         payload.add("mobile", "456");
 
         payload.setEnrollment(enrollment);
@@ -87,6 +89,25 @@ class TemplateBasedPayloadApplicationTests {
                 .doOnNext(System.out::println);//
 
         StepVerifier.create(countPayload).expectNext(1L).verifyComplete();
+
+
+        Enrollment searchedEnrollment = template.findById(enrollment.get_id(), Enrollment.class).block();
+
+        Payload dynamicPayload = new Payload();
+        dynamicPayload.setEnrollment(searchedEnrollment);
+
+        searchedEnrollment.getService().getServiceDefinition().getTemplateDefinitions().forEach(def -> {
+            payload.addNewRow();
+            final AtomicInteger cnt = new AtomicInteger(1);
+            def.getStructure().forEach(structure -> {
+                dynamicPayload.add(structure.getColumnName(),"abc" + cnt.getAndIncrement());
+            });
+
+        });
+
+        Payload insertedPayload = template.insert(dynamicPayload).block();
+        System.out.println(insertedPayload);
+
     }
 
 
